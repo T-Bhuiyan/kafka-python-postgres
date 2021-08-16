@@ -88,25 +88,6 @@ class ConnectionFactory():
             if conn is not None:
                 conn.close()
 
-
-
-    # # kafka to dd connection
-    # def kafka_connect_setup(self) -> None:
-    #     connect_setup = {
-    #         "name": "sink_kafka_pg",
-    #         "connector.class": "io.aiven.connect.jdbc.JdbcSinkConnector",
-    #         "value.converter": "org.apache.kafka.connect.json.JsonConverter",
-    #         "topics.regex": topic_name+"_schema",
-    #         "connection.url": "jdbc:postgresql://"+pg_host+":"+pg_port+"/"+pg_dbname+"?sslmode=require",
-    #         "connection.user": pg_user,
-    #         "connection.password": pg_pwd,
-    #         "auto.create": "true"
-    #                     }
-
-    #     f = open("config/kafka_connect_setup.txt", "w")
-    #     f.write(json.dumps(connect_setup, indent=4, sort_keys=True))
-    #     f.close()
-
     
 
     
