@@ -5,7 +5,7 @@ from KafkaFactory import *
 
 if __name__ = '__main__':
     config_file_path = 'config/pg_config.json'
-    
+
     conn = ConnectionFactory(config_file_path)
     conn.grant_permission()
     conn.kafka_connect_setup()
