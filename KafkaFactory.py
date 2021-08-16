@@ -22,7 +22,7 @@ class KafkaFactory():
             )
 
     def Consumer(self) -> None:
-        group_id = "avin_group"
+        group_id = "avine_group"
 
         self.consumer = KafkaConsumer(
             client_id = "client1",
