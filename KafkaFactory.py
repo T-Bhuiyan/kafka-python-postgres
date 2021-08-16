@@ -37,22 +37,25 @@ class KafkaFactory():
             max_poll_records = 10
             )
 
+    """ Once the Producer is created, we can produce a couple events """
 
     def produce_msg(self) -> None:
         self.Producer()
         self.producer.send(
         topic_name,
         key={"id":1},
-        value={"name":"Francesco", "pizza":"Margherita"}
+        value={"name":"Towhid", "pizza":"Salami"}
         )
 
 
         self.producer.send(
         topic_name,
         key={"id":2},
-        value={"name":"Adele", "pizza":"Hawaii"}
+        value={"name":"Dhruv", "pizza":"Tonno"}
         )
-    
+
+    """ Check out topics,  subscribe to the topic and start reading """
+
     def consume_msg(self) -> None:
         self.Consumer()
         self.consumer.topics()
