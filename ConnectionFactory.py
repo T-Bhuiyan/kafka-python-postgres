@@ -27,9 +27,9 @@ class ConnectionFactory():
         self.conn = conn
 
 
-    """
+        """
         granting permission to  db and schema
-    """
+        """
     def grant_permission(self) -> None:
         self.connect()
         cur = self.conn.cursor()
@@ -40,7 +40,7 @@ class ConnectionFactory():
     def create_tables(self) -> None:
         commands = (
             """
-            CREATE TABLE customer (
+            CREATE TABLE customers (
                 id SERIAL PRIMARY KEY,
                 uid INT NOT NULL,
                 info VARCHAR(255) NOT NULL
@@ -49,6 +49,7 @@ class ConnectionFactory():
 
     def execute(self,commands : str) -> None:
         try:
+            # connect to the PostgreSQL server
             cur = self.conn.cursor()
             # create table one by one
             for command in commands:
@@ -65,19 +66,19 @@ class ConnectionFactory():
 
 
     def insert_data(self, uid, info) -> None:
-        """ insert a new vendor into the customers table """
 
-        sql = """INSERT INTO customers(uid,info)
+        sql = """INSERT INTO customers (uid,info)
              VALUES(%s,%s) RETURNING id;"""
         self.execute(sql,uid,info)
 
     def execute_insert(self, sql, uid, info : str) -> None:
         try:
+            # create a new cursor
             cur = self.conn.cursor()
             # execute the INSERT statement
             cur.execute(sql, (uid, info))
             # get the generated id back
-            vendor_id = cur.fetchone()[0]
+            customer_id = cur.fetchone()[0]
             # commit the changes to the database
             conn.commit()
             # close communication with the database
