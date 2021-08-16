@@ -23,7 +23,7 @@ pip install psycopg2
 
 ## Usage
 
-To Run this Python Application:
+To run this python application:
 ```python
 python3 <filename>
 OR,
